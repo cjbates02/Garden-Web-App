@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <br />
+    <br />
+    <div class="weather-container">
+        {% for hourly in forecast.hourly %}
+            <h3 class="weather-item">{{ hourly.time }}</h3>
+            <p class="weather-item">{{ hourly.temperature }} Degrees</p>
+            <p class="weather-item">{{ hourly.description }}</p>
+        {% endfor %}
+    </div>
+    
+{% endblock %}

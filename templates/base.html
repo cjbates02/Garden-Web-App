@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='custom_css/custom.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='custom_css/my_custom.css') }}">
+
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+        <body>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid navbar-centered">
+                    <a class="navbar-brand" href="{{ url_for('index') }}">
+                        <button class="btn btn-light">Home</button>
+                    </a>
+                    <a class="nav-link" href="{{ url_for('weather') }}">
+                        <button class="btn btn-light">Weather</button>
+                    </a>
+                </div>
+            </nav>
+        
+
+            <div class="container font-family-sans-serif">
+                {% block content %}{% endblock %}
+            </div>
+        </body>
+</html>

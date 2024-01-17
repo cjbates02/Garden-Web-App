@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+
+    <br />
+    <br />
+    <div class="container-fluid">
+        <h1 class="text-center display-5">Welcome to your gardening assistant!</h1>
+        <br />
+        <h3 class="text-center display-6">{{ date }}</h2>
+        <br />
+        <h3 class=" text-center lead">It is a {{ moon_phase }}</h3>
+        <h3 class=" text-center lead">It is {{ temp }} degrees outside.</h3>
+    </div>
+    <br />
+    <br />
+
+    <div class="card-container">
+        <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Tips for the day!</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{ date }}</h6>
+              {% if tipsOfDayCount > 0 %}
+                <ul>
+                    {% for tip in tipsOfDay %}
+                        <li class="card-text">{{ tip['tip'] }}</li>
+                    {% endfor %}
+                </ul>
+              {% else %}
+                <p class="card-text">No tips for today's date</p>
+              {% endif %}
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Tips for this lunar cycle!</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{ moon_phase }}</h6>
+              {% if moon_tips_count > 0 %}
+                <ul>
+                    {% for tip in moon_tips %}
+                        <li class="card-text">{{ tip['tip'] }}</li>
+                    {% endfor %}
+                </ul>
+              {% else %}
+                <p class="card-text">No tips for this lunar phase</p>
+              {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
